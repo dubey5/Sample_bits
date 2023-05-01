@@ -11,7 +11,9 @@ For Linear Regression:
 
 Created a simple notebook piece to read the car details and then finally predict the selling price of the car by training the models from the features provided.
 Code file - Linear Regression (Multiple using categorical features).py
-Full Notebook Link - https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/1519946678612345/2223939293680660/4785757805355073/latest.html
+
+Full Notebook Link -
+https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/1519946678612345/2223939293680660/4785757805355073/latest.html
 
 For Pyspark, Kafka and cassandra:
 
