@@ -25,7 +25,7 @@ For Pyspark, Kafka and cassandra:
 Created a pyspark script which reads data from kafka producer in terminal as json and then writes the streaming data to the console.
 I tried integrating cassandra so that write happens there, it worked but showing some errors recently, so fixing it.
 
-Along with it prepared Proper Notes for all the above topics.
+Along with it prepared Proper Notes for all the above topics and uploaded them also.
 
 Next in Line:-
 Currenly studying about the Sentiment Analysis and how it works and trying to create a project to read user data from api and use all above tech stack along with machine learning to predict the nature of sentiment.
