@@ -1,0 +1,287 @@
+DE -share
+
+Technologies:
+
+	⁃	Spark
+	⁃	Kafka
+	⁃	Hadoop
+	⁃	Cassandra
+	⁃	HBase
+	⁃	MySQL
+
+Methods:
+
+	⁃	Data Modeling
+	⁃	Handling Data Streaming
+	⁃	Data Modelling Methods such as TOGAF
+
+Useful Links:
+https://dataengineering.wiki/Concepts/Concepts
+
+Concepts:
+
+	⁃	Data Lakes (Eg-> S3 in AWS) and its difference from Data Warehouse. 
+	⁃	CAP Theorem.
+
+
+- PySpark with Krish Naik - https://lnkd.in/dNqwptBA
+- Get your hands dirty with SparkByExamples an amazing reference with interesting examples to explore - https://lnk d.in/di87FHcU
+- Explore PySpark projects with Alex Ioannides - https://lnkd.in/dxhYZMJG
+- Build game-changing data-driven apps by integrating MongoDB and PySpark by Aashay Patil - http://bit.ly/42iM2xC
+- Prepare for interviews with amazing Apache spark reference - https://lnkd.in/dwb4CDjr
+
+PySpark:
+
+Setup:
+
+	⁃	Spark does not support Java 17 and only supports Java8/11.
+	⁃	Uninstall Java 17 and install version 8 from Homebrew.
+	⁃	Use command /usr/libexec/java_home on terminal to check where your java is installed and version.
+	⁃	Using this command got the java location - /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+	⁃	After uninstalling Java 17, install Java 8 using following 2 commands:
+	⁃	brew tap adoptopenjdk/openjdk
+	⁃	brew install --cask adoptopenjdk8
+	⁃	Sometimes we get this “Spark Exception: Python in worker has different version 3.4 than that in driver 2.7, PySpark cannot run with different minor versions”.
+	⁃	In order to solve the above set correct values of pyspark_python and pyspark_driver_python and it’s better to not hard code them in some bash file and instead set it inside the spark script file.
+
+Example - 
+
+import os
+import sys
+os.environ['PYSPARK_PYTHON'] = sys.executable
+os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
+
+In this way the it gives the string with the absolute path of the executable binary for the Python interpreter and set in those variables.
+
+Difference between panda dataframe and pyspark dataframe:
+
+Pandas and PySpark are two popular frameworks used for data analysis and manipulation, and both provide dataframes as a primary data structure. However, there are some differences between Pandas and PySpark dataframes, which are listed below:
+	1.	Performance: Pandas dataframes are designed to work with relatively small datasets that can fit in memory, whereas PySpark dataframes are designed to handle large datasets that may be distributed across multiple machines. PySpark dataframes are built on top of Apache Spark, which is a distributed computing framework, and can take advantage of Spark's ability to process data in parallel, resulting in faster processing times for large datasets.
+	2.	Language: Pandas is a Python-based library, while PySpark is a Python library that provides a Python API for working with Spark, which is implemented in Scala. This means that PySpark dataframes have additional overhead due to the translation between Python and Scala.
+	3.	APIs: While both Pandas and PySpark dataframes have similar APIs for basic data manipulation tasks such as selecting, filtering, and aggregating data, there are some differences in syntax and functionality. PySpark dataframes have a more functional-style API, while Pandas dataframes have a more traditional imperative-style API.
+	4.	Ecosystem: Pandas has a large ecosystem of libraries and tools that are built on top of it, such as NumPy, SciPy, and Matplotlib, which provide additional functionality for scientific computing and data visualization. PySpark has a smaller ecosystem of libraries, but it has strong integration with other Spark components, such as Spark SQL and MLlib, which provide additional functionality for SQL queries and machine learning.
+
+Content:
+
+	⁃	Open source analytics engine or general purpose cluster computing system.
+	⁃	Runs in a cluster mode which means in distributed system.
+	⁃	Super fast speed, ease of use, runs everywhere(on Hadoop, Kubernetes or in the cloud) and generality(combines sql, streaming and complex analytics). 
+	⁃	Both pandas and pyspark have dataframes having many similar API and functionality.
+	⁃	We can use functions like df.printSchema() to know about the columns and their properties inside pyspark dataframe df.
+	⁃	By default all columns are casted as string unless we use the property inferSchema=True.
+	⁃	A dataframe is a data structure used for storing and manipulating tabular data in programming languages such as Python or R. It is similar to a spreadsheet or a database table, where the data is arranged in rows and columns, and each column can have a different data type.
+	⁃	We can use Imputer Function to fill the null values of a column in a dataframe by using mean, median or mode of non-null values of those columns.
+	⁃	Imputer function is a useful tool for data preprocessing that can help improve the accuracy and reliability of your data analysis.
+	⁃	When applying aggregation we first need to group by and then perform aggregation.
+
+Linear Regression:
+
+	⁃	Linear regression is a statistical method used to analyze the relationship between a dependent variable (often denoted as "y") and one or more independent variables (often denoted as "x"). The goal of linear regression is to find the best-fit line that can predict the value of the dependent variable based on the values of the independent variable(s).
+	⁃	In its simplest form, linear regression involves fitting a straight line to a set of data points. The line is defined by an equation of the form y = mx + b, where "m" is the slope of the line and "b" is the y-intercept (the point where the line crosses the y-axis).
+	⁃	The cost function plays a crucial role in linear regression, as it is used to determine the quality of the fitted line. It represents the difference between the predicted values of y and the actual values of y, and is typically defined as the sum of the squared errors between the predicted and actual values of y.
+	⁃	The objective of linear regression is to minimize this cost function, which is accomplished by adjusting the slope and intercept of the fitted line.
+	⁃	The slope and intercept are estimated using a method called least squares, which minimizes the sum of the squared errors between the predicted values of y and the actual values of y. We use the least squares method to estimate the parameters of the model (i.e., the slope and intercept of the line) that minimize the cost function. The least squares method involves finding the values of the parameters that minimize the sum of the squared errors.
+	⁃	The convergence theorem is a fundamental concept in optimization that is often used in the context of linear regression. In particular, the convergence theorem ensures that an optimization algorithm, such as gradient descent, will converge to the optimal solution of the cost function.
+	⁃	In linear regression, the goal is to find the values of the parameters (such as the slope and intercept) that minimize the cost function. The optimization algorithm (such as gradient descent) works by iteratively adjusting the values of the parameters until the cost function is minimized.
+	⁃	Gradient descent is a widely used optimization algorithm in machine learning, including linear regression. It works by iteratively adjusting the values of the model parameters in the direction of the negative gradient of the cost function, until it reaches a minimum.
+	⁃	The least squares method is not an optimization algorithm per se, but rather a mathematical technique for finding the best-fit line and  involves finding the values of the model parameters (such as the slope and intercept) that minimize the sum of the squared errors between the predicted and actual values of the dependent variable. This is typically done using matrix algebra and calculus.
+
+Databricks:
+
+	⁃	Databricks is a unified analytics platform that provides a collaborative workspace for data engineers, data scientists, and business analysts to work together on large-scale data projects. The platform is built on top of Apache Spark, a popular open-source distributed computing framework for big data processing.
+	⁃	Spark and Python are already pre-installed in Databricks, so you do not need to install them separately. Databricks provides a managed Spark environment, which includes a pre-configured cluster with Spark and other tools already installed and ready to use.
+	⁃	In addition to Spark and Python, Databricks also includes a number of other libraries and frameworks, such as NumPy, Pandas, Scikit-learn, and TensorFlow, which are commonly used in data processing and machine learning workflows.
+	⁃	Databricks provides a variety of tools and features for data processing, machine learning, and data visualization, including Notebooks, Data processing tools, machine learning libraries and collaboration features.
+	⁃	We can use the free community edition of databricks which does not provide cloud support and creates only one instance of the cluster which means only one cluster.
+
+
+Linear Regression Notebook Link:
+https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/1519946678612345/2223939293680660/4785757805355073/latest.html
+
+Complex SQL Queries:
+https://techtfq.com/blog/learn-how-to-write-sql-queries-practice-complex-sql-queries
+
+Topics to cover:
+Same query running slow now on cluster which earlier ran faster, possible reasons for it.
+End to End data pipeline design and explanation covering all the components for data ingestion, processing, warehouse and scheduler.
+
+Kafka:
+
+	⁃	Kafka is an open-source distributed streaming platform developed by Apache Software Foundation. It is used for building real-time streaming data pipelines and streaming applications.
+	⁃	Kafka allows applications to publish and subscribe to streams of records, which can be messages, events, or any other type of data. The platform provides a scalable, fault-tolerant, and high-throughput system for handling real-time data streams.
+	⁃	Kafka consists of several components and services that work together to provide a distributed streaming platform. The major components and services of Kafka are : Kafka Brokers, Kafka Producers, Kafka Consumers, Kafka Connect, Kafka Streams, Kafka Cluster Manager.
+	⁃	Zookeeper is a distributed coordination service that is used by Kafka to manage and coordinate the Kafka cluster. It is an open-source project developed by the Apache Software Foundation, just like Kafka.
+	⁃	Zookeeper is responsible for maintaining the configuration information, naming and providing distributed synchronization, and group services for the Kafka cluster. It keeps track of the status of Kafka brokers, topics, and partitions in real-time, and allows Kafka clients to discover the current state of the system.
+	⁃	In a Kafka cluster, Zookeeper is used to elect a leader for each partition of a topic, handle failover of brokers, and provide a centralized configuration service. It also ensures that the Kafka brokers are in sync and that the messages are replicated across the cluster.
+	⁃	Without Zookeeper, it would be difficult for Kafka to manage its distributed architecture, and the overall system would be less reliable and more error-prone. Therefore, Zookeeper is an essential component of the Kafka ecosystem and is used by many organizations to build scalable, fault-tolerant data streaming pipelines.     
+
+Kafka consists of several components and services that work together to provide a distributed streaming platform. The major components and services of Kafka are:
+	1.	Kafka Brokers: Kafka brokers are the servers that form the core of the Kafka cluster. They are responsible for handling the storage and replication of the data streams. Kafka brokers can be scaled horizontally to increase the throughput and fault-tolerance of the system.
+	2.	Kafka Producers: Kafka producers are the applications that publish data to Kafka brokers. They send data to a specific topic, which is a category or stream of related data.
+	3.	Kafka Consumers: Kafka consumers are the applications that subscribe to Kafka topics and consume the data from Kafka brokers. Consumers can read data in real-time or in batches.
+	4.	Kafka Connect: Kafka Connect is a service that allows integration of Kafka with other data systems such as databases, Hadoop, and Elasticsearch. It provides a framework for building and running reusable data pipelines between Kafka and other systems.
+	5.	Kafka Streams: Kafka Streams is a service that allows building real-time stream processing applications using Kafka. It provides a high-level API for stream processing and allows developers to build stateful and fault-tolerant applications.
+	6.	Kafka Cluster Manager: Kafka Cluster Manager is a service that manages the configuration, deployment, and monitoring of Kafka clusters. It provides a web interface and REST API for managing Kafka clusters.
+
+Difference between Kafka Cluster Manager and Zookeeper:
+Kafka Cluster Manager is an external tool that can be used to manage Kafka clusters. Kafka Cluster Manager typically uses ZooKeeper as a backend storage service for storing metadata about the Kafka cluster.
+ZooKeeper is a distributed coordination service that is used by Kafka to manage cluster coordination and metadata, while Kafka Cluster Manager is a tool that can be used to manage Kafka clusters and provides a web-based interface for monitoring and administering the Kafka cluster.
+
+Installed Directory: - /opt/homebrew/opt/kafka/bin or /opt/homebrew/Cellar/kafka/3.4.0/bin
+
+Here are the steps to deploy and run Kafka locally on your system:
+
+All these commands will be executed inside the bin folder.
+
+Start Zookeeper:- 
+./zookeeper-server-start  /opt/homebrew/opt/kafka/libexec/config/zookeeper.properties 
+
+Start Kafka Broker/Server:-
+./kafka-server-start /opt/homebrew/opt/kafka/libexec/config/server.properties
+
+Create a Kafka topic (example called ‘my_topic’)
+./kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic my_topic
+
+Send and receive messages by initialising Producer console and Consumer console: - 
+
+Producer
+./kafka-console-producer --bootstrap-server localhost:9092 --topic my_topic
+
+After running the above command we get prompt on terminal to send messages like this 
+>hello
+>wow
+>anything sample write xyzzy
+
+Consumer:
+./kafka-console-consumer --bootstrap-server localhost:9092 --topic my_topic --from-beginning
+
+We get real time responses here from producer
+hello
+wow
+anything sample write xyzzy
+
+https://medium.com/@Ankitthakur/apache-kafka-installation-on-mac-using-homebrew-a367cdefd273
+
+To list all the kafka topics - ./kafka-topics --list --bootstrap-server localhost:9092  
+To delete any specific topic - ./kafka-topics. --bootstrap-server localhost:9092 --delete --topic <topic-name>
+
+Integration of Pyspark with kafka:
+
+	⁃	When working with streaming data sources in PySpark like kafka, you need to use the writeStream method to initiate the streaming query execution. This method starts the streaming query and produces a continuous stream of results.
+	⁃	By using the writeStream method, you can initiate the streaming query execution and write the query results to a specified output sink.
+	⁃	The Kafka message we load from Kafka topic inside our pyspark script consists of all these components - 
+				key|value|topic|partition|offset|timestamp|timestampType
+	⁃	We have to extract the ‘value’ from this to see the messages send from kafka producer.
+
+Cassandra:
+
+	⁃	Apache Cassandra is a distributed, open-source NoSQL database that is designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
+	⁃	Cassandra is known for its ability to scale horizontally, with linear scalability as more nodes are added to the cluster. It uses a masterless architecture, where every node in the cluster is identical and responsible for handling read and write requests, which makes it highly fault-tolerant and resilient.
+	⁃	Cassandra's data model is based on a column family structure, which allows for flexible schema design and fast read and write performance. It also supports secondary indexes, batch processing, and eventual consistency.
+	⁃	A keyspace in Cassandra is like a schema in traditional relational databases. You can create a keyspace using the CREATE KEYSPACE command.
+	⁃	Cassandra was designed to run on cheap commodity hardware. It performs blazingly fast writes and can store hundreds of terabytes of data, without sacrificing the read efficiency.
+	⁃	Cassandra supports all possible data formats like structured, semi-structured, and unstructured. It facilitates you to make changes to your data structures according to your need.
+	⁃	Cassandra has not a single point of failure and it is continuously available for business-critical applications that cannot afford a failure.
+	⁃	Cassandra is highly scalable which facilitates you to add more hardware to attach more customers and more data as per requirement.
+	⁃	ColumnFamily has been deprecated in Cassandra 3.0 and later versions, and Tables are now the primary data model for Cassandra. While ColumnFamily can still be used in older versions of Cassandra, it is recommended to use Tables for new applications.
+
+Designing the schema for Cassandra table:
+
+	⁃	In Cassandra, the partition key(s) is specified as part of the PRIMARY KEY definition when creating a table.
+	⁃	In the CREATE TABLE statement, the columns that make up the partition key are listed first in the PRIMARY KEY definition, followed by any clustering columns.
+
+Example:
+CREATE TABLE my_table (
+  partition_key_col1 data_type,
+  partition_key_col2 data_type,
+  clustering_col1 data_type,
+  clustering_col2 data_type,
+  value_col1 data_type,
+  value_col2 data_type,
+  PRIMARY KEY ((partition_key_col1, partition_key_col2), clustering_col1, clustering_col2)
+);
+
+	⁃	In this example, the table my_table has a compound primary key consisting of two partition key columns (partition_key_col1 and partition_key_col2) and two clustering columns (clustering_col1 and clustering_col2). The remaining columns (value_col1 and value_col2) are regular columns that store the data.
+	⁃	When querying data from the table, you must provide values for the partition key columns in order to locate the correct partition(s) and retrieve the data efficiently. Clustering columns are used to order the data within a partition.
+	⁃	When executing a query in Cassandra, you must provide the partition key columns in the WHERE clause to identify the specific partition where the data is stored. If the query includes any non-partition key columns, Cassandra will need to search the entire partition to find the matching data, which can be inefficient and lead to unpredictable performance.
+
+Choosing the partition key and clustering columns in Cassandra depends on the query patterns and the access patterns for your data. The partition key determines how data is distributed across nodes in the cluster, while the clustering columns determine how the data is sorted within each partition.
+Here are some general guidelines that you can follow when choosing the partition key and clustering columns:
+	1.	Choose columns that have high cardinality for the partition key. Cardinality refers to the number of unique values for a given column. High cardinality columns help to evenly distribute the data across nodes in the cluster, which can improve query performance.
+	2.	Choose columns that are frequently used in WHERE clauses for the partition key. By selecting the columns that are most frequently used in WHERE clauses, you can ensure that queries will only access the relevant partitions, which can help to improve query performance.
+	3.	Choose columns that are frequently used in ORDER BY clauses for the clustering columns. The clustering columns determine how data is sorted within each partition, so it's important to choose columns that are frequently used in ORDER BY clauses to optimize for those queries.
+	4.	Avoid using columns that have low cardinality for the partition key. Using a low cardinality column as the partition key can result in uneven data distribution across nodes, which can lead to performance issues.
+	5.	Avoid using too many clustering columns. Using too many clustering columns can result in wide rows and inefficient queries, so it's important to choose a reasonable number of clustering columns based on the query patterns for your data.
+
+	⁃	If your query includes only the partition key columns (i.e., columns included in the primary key definition) or the clustering columns (i.e., columns included in the clustering key definition), then Cassandra can use its efficient distributed index to quickly locate the relevant rows and you don't need to use the "ALLOW FILTERING" option.
+	⁃	However, if your query includes a regular column that is not part of the primary or clustering key, then Cassandra needs to scan the entire table to find the matching rows. This can be an expensive operation, especially for large tables, and can result in unpredictable query performance.
+	⁃	To avoid this, Cassandra by default prohibits queries that involve filtering on non-primary key columns, and it will throw an error message similar to "Cannot execute this query as it might involve data filtering and thus may have unpredictable performance. If you want to execute this query despite the performance unpredictability, use ALLOW FILTERING".
+	⁃	In Cassandra, a secondary index can be created on a non-primary key column to allow efficient querying of data based on that column.
+	⁃	If you frequently need to query data based on a column that is not part of the primary key, creating a secondary index on that column can improve query performance.
+
+CREATE TABLE students (
+  student_id INT,
+  student_age INT,
+  student_name TEXT,
+  student_class INT,
+  student_sports_club TEXT,
+  student_mail TEXT,
+  PRIMARY KEY ((student_id, student_name), student_age, student_class)
+);
+
+INSERT INTO students (student_id, student_age, student_name, student_class, student_sports_club, student_mail) VALUES (1, 20, ‘Harry’, 5, ‘Green’, ‘xyz’);
+
+	⁃	If we update a record and record is not present then it basically creates a new row for that record.
+	⁃	If we insert a record and record already exists then it basically updates that record.
+
+Sentiment Analysis:
+
+	⁃	Sentiment analysis is the process of using natural language processing, text analysis, and computational linguistics to identify and extract subjective information from text, such as emotions, opinions, attitudes, and sentiments expressed in written language. The objective of sentiment analysis is to determine the polarity of a given text, which can be either positive, negative, or neutral.
+	⁃	Intent analysis, also known as intention detection or intent recognition, is the process of identifying the underlying intent or purpose behind a user's message or query.
+	⁃	Sentiment analysis and intent analysis are both subfields of natural language processing (NLP), but they have different objectives and focus on different aspects of language understanding.
+	⁃	Sentiment analysis is concerned with analyzing the emotional content of a piece of text and determining whether the sentiment expressed in it is positive, negative, or neutral. The goal of sentiment analysis is to understand how people feel about a particular topic or entity, such as a product, brand, or event.
+	⁃	On the other hand, intent analysis is focused on understanding the purpose or intention behind a user's input, such as a query or request. The goal of intent analysis is to identify the user's underlying objective, such as finding information, making a purchase, or getting help with a problem.
+	⁃	Contextual semantic search is a type of search technology that uses natural language processing (NLP) techniques to analyze the context and meaning of a user's query in order to provide more relevant and accurate search results.
+	⁃	In summary, contextual semantic search is focused on understanding the meaning of a user's query and generating more accurate search results, while sentiment analysis and intent analysis are focused on understanding the emotional content and purpose behind a piece of text, respectively.
+
+https://towardsdatascience.com/sentiment-analysis-concept-analysis-and-applications-6c94d6f58c17
+
+Social media sentiment analysis: Build a system that analyses sentiment in social media posts in real-time. Use Kafka to collect social media data, PySpark to perform sentiment analysis, and Cassandra to store the results.
+
+https://rapidapi.com/boggio-analytics/api/football-prediction/
+https://miro.com/welcome/b2cyR0o5ckhsRW1ZUWRJak9ZeUxEYXFsSmZzTTVIcG1mTmc5V241VVhjdlBUMjdqWFBtOXNhSm9yMlVmcXAwUXwzNDU4NzY0NTUyNDEwODUzODczfDQ=?share_link_id=466554610735
+
+https://rapidapi.com/apidojo/api/hotels4/
+
+
+{"id": “4”, "name": “Tom”, "age": “65"}
+{"age_group": 2, “count”:5}
+
+{"id": “57”, "name": “Harry”, “email”: “85"}
+
+producer.flush()
+
+CREATE KEYSPACE testing 
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+CREATE TABLE my_keyspace.sample_table (
+   id INT PRIMARY KEY,
+   name TEXT,
+   email TEXT
+);
+
+CREATE KEYSPACE sample_keyspace WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'};
+CREATE TABLE test_table (id TEXT PRIMARY KEY, name TEXT, email TEXT);
+
+./kafka-consumer-groups --bootstrap-server localhost:9092 --group console-consumer-87503 --reset-offsets --to-earliest --all-topics
+
+./kafka-consumer-groups --bootstrap-server localhost:9092 --group console-consumer-87503 --reset-offsets --to-earliest --all-topics --execute
+
+
+./kafka-consumer-groups --bootstrap-server localhost:9092 --list
+
+./kafka-consumer-groups --bootstrap-server localhost:9092 --group console-consumer-87503 --reset-offsets --to-earliest --topic inventory_data --partition 0 --execute
+
+./kafka-consumer-groups --bootstrap-server localhost:9092 --group console-consumer-87503 --reset-offsets --to-earliest --topic inventory_data --execute
+
+bin/kafka-consumer-groups.sh --bootstrap-server <bootstrap-server> --group <consumer-group> --reset-offsets --to-earliest --topic <topic-name> --execute
