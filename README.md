@@ -6,6 +6,7 @@ I am uploading bits of everything i have learned from past few days which includ
 - Pyspark and using there transformation.
 - Kafka theory and sending and recieving messages through it locally from producer and consumer.
 - Cassandra Database and how it works and it's related architecture for supporting NoSQL.
+- Also learned databricks and how to create spark script on that.
 
 For Linear Regression:
 
@@ -14,7 +15,7 @@ Created a simple notebook piece to read the car details and then finally predict
 Code file -
 Linear Regression (Multiple using categorical features).py
 
-Full Notebook Link -
+Full Databricks Notebook Link -
 https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/1519946678612345/2223939293680660/4785757805355073/latest.html
 
 For Pyspark, Kafka and cassandra:
