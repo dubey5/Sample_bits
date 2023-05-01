@@ -8,6 +8,8 @@ I am uploading bits of everything i have learned from past few days which includ
 - Cassandra Database and how it works and it's related architecture for supporting NoSQL.
 - Also learned databricks and how to create spark script on that.
 
+Not uploading any project combining all above because facing some errors right now and fixing them so just uploading everything i learned so far.
+
 For Linear Regression:
 
 Created a simple notebook piece to read the car details and then finally predict the selling price of the car by training the models from the features provided.
